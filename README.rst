@@ -28,11 +28,17 @@ Installation
 
 Installation through pip::
 
-	$ pip install LatLon
+    $ pip install LatLon
 
 Requires the following non-standard libraries:
 
 	* *pyproj*
+
+After pyscaffold update this version is not uploaded to pip. For local installation do::
+
+    $ python setup.py sdist
+
+    $ pip install latlon --no-index --find-links .\dist\latlon-1.0.3.tar.gz --prefix=<my_location>
 
 ----------------
 Usage Notes
