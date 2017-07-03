@@ -1,20 +1,20 @@
-'''
+"""
 Test routines for class GeoVector in package LatLon
 Designed for use with pytest
 
 Created on Sep 2, 2014
 
 @author: gdelraye
-'''
+"""
 
 import math
-from .. import GeoVector
+from LatLon import GeoVector
 
 
 def test_constructor():
-    '''
+    """
     Test GeoVector constructor
-    '''
+    """
     dx, dy = 10., 10.
     magnitude = math.sqrt(dx ** 2 + dy ** 2)  # Calculate vector length
     initial_heading = 45.  # Compass heading
@@ -24,9 +24,9 @@ def test_constructor():
 
 
 def test_magic():
-    '''
+    """
     Test Geovector magic methods
-    '''
+    """
     vector1 = GeoVector(dx=0, dy=1)
     vector2 = GeoVector(dx=1, dy=0)
     assert -vector1.dy == -1  # Unexpected behavior in __neg__ method
