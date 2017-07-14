@@ -28,20 +28,27 @@ Author: Gen Del Raye
 # TODO: Write methods to convert -180 to 180 longitudes to 0 to 360 and vice versa
 
 class GeoCoord(with_metaclass(abc.ABCMeta, object)):
-    """
-    Abstract class representing geographic coordinates (i.e. latitude or longitude)
-    Not meant to be used directly - access through Subclasses Latitude() and Longitude() 
+    """Abstract class representing geographic coordinates (i.e. latitude or longitude).
+
+    Parameters
+    ----------
+    degree : scalar
+       integer or decimal degrees. If decimal degrees are given (e.g. 5.83), the fractional values (0.83) will be added
+       to the minute and second variables.
+    minute : scalar
+        integer or decimal minutes. If decimal minutes are given (e.g. 49.17), the fractional values (0.17) will be
+        added to the second variable.
+    second : scalar
+        decimal minutes.
+
+    Notes
+    -----
+    Not meant to be used directly - access through Subclasses Latitude() and Longitude()
     """
 
     def __init__(self, degree=0, minute=0, second=0):
         """
-        Initialize a GeoCoord object
-        Inputs:
-            degree (scalar) - integer or decimal degrees. If decimal degrees are given (e.g. 5.83),
-              the fractional values (0.83) will be added to the minute and second variables.
-            minute (scalar) - integer or decimal minutes. If decimal minutes are given (e.g. 49.17),
-              the fractional values (0.17) will be added to the second variable.
-            second (scalar) - decimal minutes.
+        Initialise the GeoCoord object
         """
         self.degree = float(degree)
         self.minute = float(minute)
@@ -107,22 +114,26 @@ class GeoCoord(with_metaclass(abc.ABCMeta, object)):
     def to_string(self, format_str, n_digit_seconds=7, n_digits_decimal_minutes=7):
         """
         Output lat, lon coordinates as string in chosen format
-        Inputs:
-            format (str) - A string of the form A%B%C where A, B and C are identifiers.
-              Unknown identifiers (e.g. " ", ", " or "_" will be inserted as separators
-              in a position corresponding to the position in format.
-            n_digit_seconds : int, optional, default=7
-                Number of digits used for the seconds given with %<
-            n_digit_decimal_minutes : int, optional, default=7
-                Number of digits used for the decimal minutes given with %S
-        Examples:
-            >> palmyra = LatLon(5.8833, -162.0833)
-            >> palmyra.to_string("D") # Degree decimal output
-            ("5.8833", "-162.0833")
-            >> palmyra.to_string("H% %D")
-            ("N 5.8833", "W 162.0833")
-            >> palmyra.to_string("d%_%M")
-            ("5_52.998", "-162_4.998")
+
+        Parameters
+        ----------
+        format : str
+            A string of the form A%B%C where A, B and C are identifiers. Unknown identifiers (e.g. " ", ", " or "_" will
+            be inserted as separators in a position corresponding to the position in format.
+        n_digit_seconds : int, optional, default=7
+            Number of digits used for the seconds given with %<
+        n_digit_decimal_minutes : int, optional, default=7
+            Number of digits used for the decimal minutes given with %S
+
+        Examples
+        --------
+        >>> palmyra = LatLon(5.8833, -162.0833)
+        >>> palmyra.to_string("D") # Degree decimal output
+        ("5.8833", "-162.0833")
+        >>> palmyra.to_string("H% %D")
+        ("N 5.8833", "W 162.0833")
+        >>> palmyra.to_string("d%_%M")
+        ("5_52.998", "-162_4.998")
         """
         second_format = "{:." + "{:d}".format(int(n_digit_seconds)) + "f}"
         minutes_format = "{:." + "{:d}".format(int(n_digits_decimal_minutes)) + "f}"
@@ -298,25 +309,35 @@ class Longitude(GeoCoord):
 def string2geocoord(coord_str, coord_class, format_str="D"):
     """
     Create a GeoCoord object (e.g. Latitude or Longitude) from a string.
-    Inputs:
-        coord_str (str) - a string representation of a geographic coordinate (e.g. "5.083 N"). Each
-          section of the string must be separated by some kind of a separator character ("5.083N" is
-          invalid).
-        coord_class (class) - a class inheriting from GeoCoord that includes a set_hemisphere method.
-          Can be either Latitude or Longitude
-        format_str (str) - a string representation of the sections of coord_str. Possible letter values 
-        correspond to the keys of the dictionary format2value, where
-              "H" is a hemisphere identifier (e.g. N, S, E or W)
-              "D" is a coordinate in decimal degrees notation
-              "d" is a coordinate in degrees notation
-              "M" is a coordinate in decimal minutes notaion
-              "m" is a coordinate in minutes notation
-              "S" is a coordinate in seconds notation
-              Any other characters (e.g. " " or ", ") will be treated as a separator between the above components.
-          All components should be separated by the "%" character. For example, if the coord_str is
-          "5, 52, 59.88_N", the format_str would be "d%, %m%, %S%_%H"
-    Returns:
-        GeoCoord object initialized with the coordinate information from coord_str
+
+    Parameters
+    ----------
+    coord_str : str
+        A string representation of a geographic coordinate (e.g. "5.083 N"). Each section of the string must be
+        separated by some kind of a separator character ("5.083N" is invalid).
+    coord_class : class
+        A class inheriting from GeoCoord that includes a set_hemisphere method.
+        Can be either Latitude or Longitude
+    format_str : str
+        A string representation of the sections of coord_str. Possible letter values correspond to the keys of the
+        dictionary format2value, where
+
+            - `H` is a hemisphere identifier (e.g. N, S, E or W)
+            - `D` is a coordinate in decimal degrees notation
+            - `d` is a coordinate in degrees notation
+            - `M` is a coordinate in decimal minutes notaion
+            - `m` is a coordinate in minutes notation
+            - `S` is a coordinate in seconds notation
+
+        Any other characters (e.g. " " or ", ") will be treated as a separator between the above components.
+
+        All components should be separated by the "%" character. For example, if the coord_str is "5, 52, 59.88_N",
+        the format_str would be "d%, %m%, %S%_%H"
+
+    Returns
+    -------
+    :object:`GeoCoord`
+        Initialized with the coordinate information from coord_str
     """
     new_coord = coord_class()
     # Dictionary of functions for setting variables in the coordinate class:
@@ -566,13 +587,20 @@ class LatLon(object):
 def string2latlon(lat_str, lon_str, format_str):
     """
     Create a LatLon object from a pair of strings.
-    Inputs:
-        lat_str (str) - string representation of a latitude (e.g. "5 52 59.88 N")
-        lon_str (str) - string representation of a longitude (e.g. "162 4 59.88 W")
-        format_str (str) - format in which the coordinate strings are given (e.g. 
-          for the above examples this would be "d% %m% %S% %H"). See function
-          string2geocoord for a detailed explanation on how to specify formats.
-    Returns:
+
+    Parameters
+    ----------
+    lat_str :str
+        String representation of a latitude (e.g. "5 52 59.88 N")
+    lon_str : str
+        String representation of a longitude (e.g. "162 4 59.88 W")
+    format_str : str
+        Format in which the coordinate strings are given (e.g. for the above examples this would be "d% %m% %S% %H").
+        See function *string2geocoord* for a detailed explanation on how to specify formats.
+
+    Returns
+    -------
+    :object:`LatLon`
         A LatLon object initialized with coordinate data from lat_str and lon_str
     """
     lat = string2geocoord(lat_str, Latitude, format_str)
@@ -584,29 +612,40 @@ def string2latlon(lat_str, lon_str, format_str):
 class GeoVector(object):
     """
     Object representing the distance and heading between two lat/lon coordinates
+
+    Parameters
+    ----------
+    dx :scalar
+        The zonal component of a vector in km
+    dy : scalar
+        The meridional component of a vector in km
+    initial_heading : scalar
+        The initial heading of the vector in degrees
+    distance : scalar
+        The magnitude of the vector in km
+
+    Notes
+    -----
     Can be created by:
-        1. Passing dx and dy arguments
-        2. Passing initial_heading and distance keyword arguments
-        3. Subtracting two LatLon objects
+
+    1. Passing dx and dy arguments
+    2. Passing initial_heading and distance keyword arguments
+    3. Subtracting two LatLon objects
+
     """
 
     def __init__(self, dx=None, dy=None, initial_heading=None, distance=None):
         """
         Create a GeoVector object
-        Inputs:
-            dx (scalar) - the zonal component of a vector in km
-            dy (scalar) - the meridional component of a vector in km
-            initial_heading (scalar) - the initial heading of the vector in degrees
-            distance (scalar) - the magnitude of the vector in km
         """
-        if dx == None and dy == None:  # If only initial_heading and distance are given
+        if dx is None and dy is None:  # If only initial_heading and distance are given
             self.heading = initial_heading
             theta = self._angle_or_heading(self.heading)  # Convert heading to angle
             theta_rad = math.radians(theta)
             self.magnitude = distance
             self.dx = self.magnitude * math.cos(theta_rad)
             self.dy = self.magnitude * math.sin(theta_rad)
-        elif initial_heading == None and distance == None:  # If only dx and dy are given
+        elif initial_heading is None and distance is None:  # If only dx and dy are given
             self.dx = dx
             self.dy = dy
             self._update()
