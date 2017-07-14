@@ -722,6 +722,9 @@ class GeoVector(object):
     def __cmp__(self, other):
         return cmp(self.magnitude, other.magnitude)
 
+    def __gt__(self, other):
+        return cmp(self.magnitude, other.magnitude)
+
     def __pos__(self):
         return GeoVector(self.dx, self.dy)
 

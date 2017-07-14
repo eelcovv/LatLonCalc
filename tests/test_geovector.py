@@ -40,5 +40,6 @@ def test_magic():
     vector1x2 = vector1 * 2
     assert vector1.heading == vector1x2.heading  # Unexpected behavior for heading attribute with __mul__ method
     assert vector1x2 > vector1  # __cmp__ method giving unexpected result
+    assert vector1 < vector1x2  # __cmp__ method giving unexpected result
     assert vector1x2.almost_equals(vector1 + vector1)  # Failed to recreate vector by addition and multiplication
     assert str(vector1x2) == '0.0, 2'  # String conversion failed
