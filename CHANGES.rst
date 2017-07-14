@@ -8,6 +8,9 @@ Changelog
 
 * Applied futurize script to allow to run LatLon under Python 3.5
 * Fixed some unit tests
+* Fixed the comparative operator
+* Made Docstrings compliant to Numpy Doc Style
+* Tested on Python 3.5
 
 1.0.2 (OCTOBER/14/2014)
 =======================
