@@ -212,8 +212,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'latlon_user_guide.tex', u'LatLon Documentation',
-   u'Eelco van Vliet', 'manual'),
+  ('index', 'latlon_user_guide_v{}.tex'.format(release), u'LatLon Documentation',
+   u'HMC', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
