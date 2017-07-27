@@ -22,6 +22,13 @@ Features:
     Calculate distances between lat/lon pairs using either the FAI or WGS84 approximation
 Written July 22, 2014
 Author: Gen Del Raye
+
+Notes
+-----
+Conversion of coordinates between different coordinate systems is not unambiguous. This module is
+available as is as part of the HMC Python package, but shall not be used for 'official' coordinate projection or 
+distance calculations. Official conversions should only be done using dedicated tools as used by 
+Survey and Operations
 """
 
 
@@ -407,6 +414,12 @@ class LatLon(object):
         """
         Return coordinates transformed to a given projection
         Projection should be a basemap or pyproj projection object or similar
+
+        Notes
+        -----
+        Conversion of coordinates between different coordinate systems is not unambiguous. This method is
+        available as is as part of this toolbox, but shall not be used for 'official' coordinate project. Official
+        conversions should only be done using dedicated tools as used by Survey and Operations
         """
         x, y = projection(self.lon.decimal_degree, self.lat.decimal_degree)
         return (x, y)
@@ -453,6 +466,11 @@ class LatLon(object):
         Returns great circle distance between two LatLon objects in km using pyproj.
         Assumes the WGS84 ellipsoid by default. Choose ellipse = "sphere"
         for the FAI ellipsoid.
+
+        Notes
+        -----
+        This method is available as is as part of this toolbox, but shall not be used for 'official' distance
+        calculations.
         """
         return self._pyproj_inv(other, **kwargs)["distance"]
 
