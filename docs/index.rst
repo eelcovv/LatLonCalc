@@ -6,6 +6,14 @@ This is the documentation of **LatLon**.
 
 .. note::
 
+    Conversion of coordinates between different coordinate systems is not unambiguous. This module is
+    available as is as part of the HMC Python package, but shall not be used for 'official' coordinate projection or
+    distance calculations. Official conversions should only be done using dedicated tools as used by
+    Survey and Operations
+
+
+.. note::
+
     This is the main page of your project's `Sphinx <http://sphinx-doc.org/>`_
     documentation. It is formatted in `reStructuredText
     <http://sphinx-doc.org/rest.html>`__. Add additional pages by creating
