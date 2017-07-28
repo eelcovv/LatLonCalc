@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.1.1 (JULY/28/2017)
+1.1.2 (JULY/28/2017)
 ====================
 * Released for production
 
