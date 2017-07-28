@@ -124,23 +124,23 @@ class GeoCoord(with_metaclass(abc.ABCMeta, object)):
 
         Parameters
         ----------
-        format : str
+        format_str : str
             A string of the form A%B%C where A, B and C are identifiers. Unknown identifiers (e.g. " ", ", " or "_" will
             be inserted as separators in a position corresponding to the position in format.
         n_digit_seconds : int, optional, default=7
             Number of digits used for the seconds given with %<
-        n_digit_decimal_minutes : int, optional, default=7
+        n_digits_decimal_minutes : int, optional, default=7
             Number of digits used for the decimal minutes given with %S
 
         Examples
         --------
         >>> palmyra = LatLon(5.8833, -162.0833)
         >>> palmyra.to_string("D") # Degree decimal output
-        ("5.8833", "-162.0833")
+        ('5.8833', '-162.0833')
         >>> palmyra.to_string("H% %D")
-        ("N 5.8833", "W 162.0833")
-        >>> palmyra.to_string("d%_%M")
-        ("5_52.998", "-162_4.998")
+        ('N 5.8833', 'W 162.0833')
+        >>> palmyra.to_string("d%_%M", n_digits_decimal_minutes=3)
+        ('5_52.998', '-162_4.998')
         """
         second_format = "{:." + "{:d}".format(int(n_digit_seconds)) + "f}"
         minutes_format = "{:." + "{:d}".format(int(n_digits_decimal_minutes)) + "f}"
@@ -215,7 +215,8 @@ class GeoCoord(with_metaclass(abc.ABCMeta, object)):
     def __repr__(self):
         return self.__str__()
 
-    def type(self):
+    @staticmethod
+    def type():
         """
         Identifies the object type
         """
@@ -371,8 +372,9 @@ def string2geocoord(coord_str, coord_class, format_str="D"):
                   form in list(format2value.keys())]  # E.g. "D", "m", or "S" characters
     for form, sep in zip(formatters, separators):
         coord_elements = coord_str.split(sep)
+        # Set the coordinate variable (e.g. "self.degree" with the coordinate substring (e.g. "5")
         format2value[form](coord_elements[
-                               0])  # Set the coordinate variable (e.g. "self.degree" with the coordinate substring (e.g. "5")
+                               0])
         coord_str = sep.join(coord_elements[1:])  # Get rid of parts of the substring that have already been done
     new_coord._update()  # Change all of the variables in the coordinate class so they are consistent with each other
     return new_coord
@@ -595,7 +597,8 @@ class LatLon(object):
     def __complex__(self):
         return self.complex()
 
-    def type(self):
+    @staticmethod
+    def type():
         """
         Identifies the object type
         """
@@ -673,7 +676,8 @@ class GeoVector(object):
     def __call__(self):
         return self.heading, self.magnitude
 
-    def _angle_or_heading(self, angle_or_heading):
+    @staticmethod
+    def _angle_or_heading(angle_or_heading):
         """
         Convert angle degrees (i.e. starting at coordinates (1, 0) or 
         due East and going clockwise to 360) into heading (i.e. starting 
@@ -694,6 +698,8 @@ class GeoVector(object):
                 theta_radians = 0.5 * math.pi
             elif self.dy < 0:
                 theta_radians = 1.5 * math.pi
+            else:
+                theta_radians = 0.5 * math.pi
             self.magnitude = self.dy
         else:
             self.magnitude = 1. / (math.cos(theta_radians)) * self.dx
@@ -779,7 +785,8 @@ class GeoVector(object):
     def __repr__(self):
         return "Heading %s, Distance %s" % (self.heading, self.magnitude)
 
-    def type(self):
+    @staticmethod
+    def type():
         """
         Identifies the object type
         """
@@ -808,8 +815,9 @@ def demonstration():
     print(initial_heading)
     hnl = palmyra.offset(initial_heading, distance)  # Reconstruct lat/lon for Honolulu based on offset from Palmyra
     print(hnl.to_string("D"))  # Coordinates of Honolulu are latitude 21.3, longitude -157.8167
+    # A GeoVector with heading equal to the vector between palmyra and honolulu, but 2x the magnitude
     vector = (
-                 honolulu - palmyra) * 2  # A GeoVector with heading equal to the vector between palmyra and honolulu, but 2x the magnitude
+                 honolulu - palmyra) * 2
     print(vector)  # Print heading and magnitude
     print(palmyra + 0.5 * vector)  # Recreate the coordinates of Honolulu by adding half of vector to palmyra
     # in python 3 overload of / does not work.
