@@ -40,6 +40,33 @@ After pyscaffold update this version is not uploaded to pip. For local installat
 
     $ pip install latlon --no-index --find-links .\dist\latlon-1.0.3.tar.gz --prefix=<my_location>
 
+------------
+Contributing
+------------
+
+In case you want to contribute to this package or just have a look at the total pacakge you can do the following
+
+1. Open the git terminal and go to your development directory (e.g. C:\Users\yourname\Python)
+2. Clone the repository::
+
+    $ git clone \\alecto\TECHYLEI\Dep\MarineEngineering\Software\Toolboxes\Development\python\repositories\LatLon.git
+
+3. Go the newly created LatLon directory *or* open this LatLon directory in PyCharm as a new project
+4. Create a new branch for your own developments::
+
+    $ git checkout -b dev_my_name
+
+5. Start doing your work and when done do::
+
+    $ git add .
+    $ git commit -m 'my developments'
+
+6. Push your work to the development repository as your personal branch::
+
+    $ git push -u origin dev_my_name
+
+7. Notify the owner of this package
+
 -----------
 Usage Notes
 -----------
