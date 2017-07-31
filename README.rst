@@ -34,7 +34,7 @@ Requires the following non-standard libraries:
 
 	* *pyproj*
 
-After pyscaffold update this version is not uploaded to pip. For local installation do::
+After the pyscaffold update this version is not uploaded to pip. For local installation do::
 
     $ python setup.py sdist
 
