@@ -8,7 +8,7 @@ Created on Sep 2, 2014
 """
 
 import math
-from LatLon.LatLon import GeoVector
+from LatLon.lat_lon import GeoVector
 
 
 def test_constructor():
