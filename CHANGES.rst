@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.1.5 (JULY/28/2017)
+====================
+* Bug fix exception in __init__ file.  Only relevant for making executable using pyinstaller
+
 1.1.4 (JULY/28/2017)
 ====================
 * Released for production
