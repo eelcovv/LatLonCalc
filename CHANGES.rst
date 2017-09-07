@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.1.6 (SEPT/7/2017)
+1.1.7 (SEPT/7/2017)
 ====================
 * Bug fix exception in __init__ file.  Only relevant for making executable using pyinstaller
 
