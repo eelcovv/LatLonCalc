@@ -16,9 +16,9 @@ from past.builtins import cmp
 """
 Methods for representing geographic coordinates (latitude and longitude)
 Features:
-    Convert lat/lon strings from any format into a LatLon3 object
+    Convert lat/lon strings from any format into a LatLon object
     Automatically store decimal degrees, decimal minutes, and degree, minute, second
-      information in a LatLon3 object
+      information in a LatLon object
     Output lat/lon information into a formatted string
     Project lat/lon coordinates into some other proj projection
     Calculate distances between lat/lon pairs using either the FAI or WGS84 approximation
@@ -130,7 +130,7 @@ class GeoCoord(with_metaclass(abc.ABCMeta, object)):
 
         Examples
         --------
-        >>> palmyra = LatLon3(5.8833, -162.0833)
+        >>> palmyra = LatLon(5.8833, -162.0833)
         >>> palmyra.to_string("D") # Degree decimal output
         ('5.8833', '-162.0833')
         >>> palmyra.to_string("H% %D")
@@ -340,7 +340,7 @@ def string2geocoord(coord_str, coord_class, format_str="D"):
 
     Returns
     -------
-    :object:`GeoCoord`
+    GeoCoord:
         Initialized with the coordinate information from coord_str
     """
     new_coord = coord_class()
@@ -385,7 +385,7 @@ class LatLon(object):
         """
         Input:
             lat (class instance or scalar) - an instance of class Latitude or a scalar. A Latitude object
-              can be instantiated directly in the __init__ call for example by calling LatLon3(Latitude(5.8),
+              can be instantiated directly in the __init__ call for example by calling LatLon(Latitude(5.8),
               Longitude(162.5)). If lat is specified as a scalar, the scalar will be assumed to be in 
               decimal degrees.
             lon (class instance or scalar) - an instance of class Longitude or a scalar. If lat is
@@ -430,7 +430,7 @@ class LatLon(object):
 
     def _pyproj_inv(self, other, ellipse="WGS84"):
         """
-        Perform Pyproj"s inv operation on two LatLon3 objects
+        Perform Pyproj"s inv operation on two LatLon objects
         Returns the initial heading and reverse heading in degrees, and the distance
         in km.
         """
@@ -445,7 +445,7 @@ class LatLon(object):
 
     def heading_initial(self, other, **kwargs):
         """
-        Returns initial bearing between two LatLon3 objects in degrees using pyproj.
+        Returns initial bearing between two LatLon objects in degrees using pyproj.
         Assumes the WGS84 ellipsoid by default. Choose ellipse = "sphere"
         for the FAI ellipsoid.
         """
@@ -453,7 +453,7 @@ class LatLon(object):
 
     def heading_reverse(self, other, **kwargs):
         """
-        Returns reverse bearing between two LatLon3 objects in degrees using pyproj.
+        Returns reverse bearing between two LatLon objects in degrees using pyproj.
         Assumes the WGS84 ellipsoid by default. Choose ellipse = "sphere"
         for the FAI ellipsoid.
         """
@@ -461,7 +461,7 @@ class LatLon(object):
 
     def distance(self, other, **kwargs):
         """
-        Returns great circle distance between two LatLon3 objects in km using pyproj.
+        Returns great circle distance between two LatLon objects in km using pyproj.
         Assumes the WGS84 ellipsoid by default. Choose ellipse = "sphere"
         for the FAI ellipsoid.
 
@@ -498,8 +498,8 @@ class LatLon(object):
 
     def offset(self, heading_initial, distance, ellipse="WGS84"):
         """
-        Offset a LatLon3 object by a heading (in degrees) and distance (in km)
-        to return a new LatLon3 object
+        Offset a LatLon object by a heading (in degrees) and distance (in km)
+        to return a new LatLon object
         """
         lat1, lon1 = self.lat.decimal_degree, self.lon.decimal_degree
         g = pyproj.Geod(ellps=ellipse)
@@ -528,7 +528,7 @@ class LatLon(object):
 
     def _sub_latlon(self, other):
         """
-        Called when subtracting a LatLon3 object from self
+        Called when subtracting a LatLon object from self
         """
         inv = self._pyproj_inv(other)
         heading = inv["heading_reverse"]
@@ -537,22 +537,22 @@ class LatLon(object):
 
     def almost_equal(self, other, e=0.000001):
         """
-        Sometimes required for comparing LatLon3 coordinates if float error has
-        occurred. Determine if self and other (another LatLon3 coordinate) are
+        Sometimes required for comparing LatLon coordinates if float error has
+        occurred. Determine if self and other (another LatLon coordinate) are
         equal to within e km of each other. The default (e = 0.000001) will return
         True if self and other are less than 1 mm apart in distance.
         """
         return (self - other).magnitude < e
 
     def __eq__(self, other):
-        # other is a LatLon3 object
+        # other is a LatLon object
         if self.lat == other.lat and self.lon == other.lon:
             return True
         else:
             return False
 
     def __ne__(self, other):
-        # other is a LatLon3 object
+        # other is a LatLon object
         return not self.__eq__(other)
 
     def __add__(self, other):
@@ -570,10 +570,10 @@ class LatLon(object):
         return self.__add__(other)
 
     def __sub__(self, other):
-        # if other is a GeoVector, will return LatLon3 object
-        # if other is a LatLon3, will return GeoVector object
+        # if other is a GeoVector, will return LatLon object
+        # if other is a LatLon, will return GeoVector object
         object_operator = {"GeoVector": self._sub_vector,
-                           "LatLon3": self._sub_latlon}
+                           "LatLon": self._sub_latlon}
         return object_operator[other.type()](other)
 
     def __isub__(self, other):
@@ -598,12 +598,12 @@ class LatLon(object):
         """
         Identifies the object type
         """
-        return "LatLon3"
+        return "LatLon"
 
 
 def string2latlon(lat_str, lon_str, format_str):
     """
-    Create a LatLon3 object from a pair of strings.
+    Create a LatLon object from a pair of strings.
 
     Parameters
     ----------
@@ -617,8 +617,8 @@ def string2latlon(lat_str, lon_str, format_str):
 
     Returns
     -------
-    :object:`LatLon3`
-        A LatLon3 object initialized with coordinate data from lat_str and lon_str
+    LatLon:
+        A LatLon object initialized with coordinate data from lat_str and lon_str
     """
     lat = string2geocoord(lat_str, Latitude, format_str)
     lon = string2geocoord(lon_str, Longitude, format_str)
@@ -647,7 +647,7 @@ class GeoVector(object):
 
     1. Passing dx and dy arguments
     2. Passing initial_heading and distance keyword arguments
-    3. Subtracting two LatLon3 objects
+    3. Subtracting two LatLon objects
 
     """
 
