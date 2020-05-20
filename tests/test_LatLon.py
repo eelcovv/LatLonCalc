@@ -80,7 +80,11 @@ def test_LatLon_heading():
     true_heading = -180.000  # Heading for directly south
     forward_heading = rad2deg(angle(exp(1j * deg2rad(washington.heading_initial(lima)))))
     # Check handling of equal longitude coordinates by heading_initial:
-    assert_almost_equal(forward_heading, true_heading, decimal=3)
+    try:
+        assert_almost_equal(forward_heading, true_heading, decimal=3)
+    except AssertionError:
+        # now exactly south is 180 (not -180). Just a definition matter. Try again with 180 if -180 fails
+        assert_almost_equal(forward_heading, -true_heading, decimal=3)
     reverse_heading = lima.heading_reverse(washington)
     # Check handling of equal longitude coordinates by heading_reverse:
     true_heading = 180.000  # Heading for directly south
