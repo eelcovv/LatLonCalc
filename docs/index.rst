@@ -1,6 +1,6 @@
-======
-LatLon
-======
+=======
+LatLon3
+=======
 
 This is the documentation of **LatLon3**.
 

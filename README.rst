@@ -21,7 +21,7 @@ Methods for representing geographic coordinates (latitude and longitude) includi
   the coordinates adjusted by the *GeoVector* object's distance and heading
 * *GeoVector* objects can be added, subtracted, multiplied or divided
 * The module name is called LatLon3 as it is an upgrade of the LatLon package at pypi for Python 3.8.
-  The original Author of LatLon is not maintaining the pypi package anymore, so we needed to update
+  The original Author of LatLon is not maintaining the pypi package anymore, so we needed to change the name
 
 
 ------------
