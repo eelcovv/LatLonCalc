@@ -8,6 +8,7 @@ Created on Sep 2, 2014
 """
 
 import math
+
 from LatLon.LatLon import GeoVector
 
 

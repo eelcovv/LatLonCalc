@@ -1,15 +1,17 @@
 from __future__ import division
 from __future__ import print_function
-from past.builtins import cmp
-from builtins import zip
-from builtins import str
-from builtins import object
+
+import abc
 import math
 import re
-import pyproj
 import warnings
-import abc
+from builtins import object
+from builtins import str
+from builtins import zip
+
+import pyproj
 from future.utils import with_metaclass
+from past.builtins import cmp
 
 """
 Methods for representing geographic coordinates (latitude and longitude)
@@ -817,7 +819,7 @@ def demonstration():
     print(hnl.to_string("D"))  # Coordinates of Honolulu are latitude 21.3, longitude -157.8167
     # A GeoVector with heading equal to the vector between palmyra and honolulu, but 2x the magnitude
     vector = (
-                 honolulu - palmyra) * 2
+                     honolulu - palmyra) * 2
     print(vector)  # Print heading and magnitude
     print(palmyra + 0.5 * vector)  # Recreate the coordinates of Honolulu by adding half of vector to palmyra
     # in python 3 overload of / does not work.

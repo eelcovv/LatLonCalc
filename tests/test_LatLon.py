@@ -8,10 +8,12 @@ Created on Sep 2, 2014
 '''
 
 from builtins import str
-from LatLon.LatLon import (LatLon, string2latlon, Latitude, Longitude)
-from numpy.testing import (assert_almost_equal, assert_equal)
-from numpy import (exp, angle, deg2rad, rad2deg)
+
 import pyproj
+from numpy import (exp, angle, deg2rad, rad2deg)
+from numpy.testing import (assert_almost_equal, assert_equal)
+
+from LatLon.LatLon import (LatLon, string2latlon, Latitude, Longitude)
 
 
 def test_LatLon_tostring():
