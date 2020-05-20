@@ -1,6 +1,6 @@
-======
+=======
 LatLon3
-======
+=======
 --------
 Features
 --------
@@ -36,7 +36,8 @@ Installation through pip::
 Requires the following non-standard libraries:
 
 	* *pyproj*
-    * *future*
+	* *future*
+
 
 -----------
 Usage Notes
