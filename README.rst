@@ -1,5 +1,5 @@
 ======
-LatLon
+LatLon3
 ======
 --------
 Features
@@ -20,52 +20,23 @@ Methods for representing geographic coordinates (latitude and longitude) includi
 * Adding or subtracting a *Latlon* object and a *GeoVector* object creates a new *LatLon* object with
   the coordinates adjusted by the *GeoVector* object's distance and heading
 * *GeoVector* objects can be added, subtracted, multiplied or divided
+* The module name is called LatLon3 as it is an upgrade of the LatLon package at pypi for Python 3.8.
+  The original Author of LatLon is not maintaining the pypi package anymore, so we needed to update
+
 
 ------------
 Installation
 ------------
-*LatLon* has only been tested in Python 2.7 and 3.5
+*LatLon3* has only been tested in Python 2.7 and 3.5, and 3.8
 
 Installation through pip::
 
-    $ pip install LatLon
+    $ pip install LatLon3
 
 Requires the following non-standard libraries:
 
 	* *pyproj*
-
-After the pyscaffold update this version is not uploaded to pip. For local installation do::
-
-    $ python setup.py sdist
-
-    $ pip install latlon --no-index --find-links .\dist\latlon-1.0.3.tar.gz --prefix=<my_location>
-
-------------
-Contributing
-------------
-
-In case you want to contribute to this package or just have a look at the total pacakge you can do the following
-
-1. Open the git terminal and go to your development directory (e.g. C:\Users\yourname\Python)
-2. Clone the repository::
-
-    $ git clone \\alecto\TECHYLEI\Dep\MarineEngineering\Software\Toolboxes\Development\python\repositories\LatLon.git
-
-3. Go the newly created LatLon directory *or* open this LatLon directory in PyCharm as a new project
-4. Create a new branch for your own developments::
-
-    $ git checkout -b dev_my_name
-
-5. Start doing your work and when done do::
-
-    $ git add .
-    $ git commit -m 'my developments'
-
-6. Push your work to the development repository as your personal branch::
-
-    $ git push -u origin dev_my_name
-
-7. Notify the owner of this package
+    * *future*
 
 -----------
 Usage Notes
