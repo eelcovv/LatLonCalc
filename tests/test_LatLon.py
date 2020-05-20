@@ -1,5 +1,5 @@
 '''
-Test routines for class LatLon in package LatLon
+Test routines for class LatLon3 in package LatLon3
 Designed for use with pytest
 
 Created on Sep 2, 2014
@@ -13,12 +13,12 @@ import pyproj
 from numpy import (exp, angle, deg2rad, rad2deg)
 from numpy.testing import (assert_almost_equal, assert_equal)
 
-from LatLon.LatLon import (LatLon, string2latlon, Latitude, Longitude)
+from LatLon3.LatLon import (LatLon, string2latlon, Latitude, Longitude)
 
 
 def test_LatLon_tostring():
     '''
-    Test LatLon method to_string
+    Test LatLon3 method to_string
     '''
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     # Built-in string conversion (calls to_string):
@@ -33,20 +33,20 @@ def test_LatLon_tostring():
 
 def test_LatLon_fromstring():
     '''
-    Test LatLon method from_string
+    Test LatLon3 method from_string
     '''
     lat_str, lon_str = '5.8833', '-162.0833'  # test location is Palmyra Atoll
-    # Convert decimal degrees string to LatLon object:
+    # Convert decimal degrees string to LatLon3 object:
     palmyra = string2latlon(lat_str, lon_str, 'D')
     assert str(palmyra) == '5.8833, -162.0833'  # Failure to convert from degree, minutes, second, hemisphere string
     lat_str, lon_str = '5, 52, 59.88, N', '162, 4, 59.88, W'
-    # Convert degrees minutes second string with hemisphere identifier to LatLon object:
+    # Convert degrees minutes second string with hemisphere identifier to LatLon3 object:
     palmyra = string2latlon(lat_str, lon_str, 'd%, %m%, %S%, %H')
     assert_almost_equal(palmyra.lat.decimal_degree, 5.8833)
     assert_almost_equal(palmyra.lon.decimal_degree,
                         -162.0833)  # Failure to convert from degree, minutes, second, hemisphere string
     lat_str, lon_str = 'N_5deg 52.998', 'W_162deg 4.998'
-    # Convert degrees minutes second string with fancy separators to LatLon object:
+    # Convert degrees minutes second string with fancy separators to LatLon3 object:
     palmyra = string2latlon(lat_str, lon_str, 'H%_%d%deg %M')
     # convert to lat decimal degree to solve round of problem
     assert_almost_equal(palmyra.lat.decimal_degree,
@@ -57,7 +57,7 @@ def test_LatLon_fromstring():
 
 def test_LatLon_complex():
     '''
-    Test LatLon method complex
+    Test LatLon3 method complex
     '''
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     complex_coords = palmyra.complex()  # Convert lat/lon coordinate to single complex number
@@ -67,7 +67,7 @@ def test_LatLon_complex():
 
 def test_LatLon_heading():
     '''
-    Test LatLon methods heading_initial and heading_reverse
+    Test LatLon3 methods heading_initial and heading_reverse
     '''
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3, -157.8167)  # locations: Palmyra Atoll and Honolulu, HI
     true_heading = 14.691  # Correct heading in from Palmyra to Honolulu to 3 decimal places
@@ -104,7 +104,7 @@ def test_LatLon_heading():
 
 def test_LatLon_distance():
     '''
-    Test LatLon method distance
+    Test LatLon3 method distance
     '''
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3, -157.8167)  # locations: Palmyra Atoll and Honolulu, HI
     true_distance = '1766.691'  # Distance from Palmyra to Honolulu in km
@@ -121,7 +121,7 @@ def test_LatLon_distance():
 
 def test_LatLon_offset():
     '''
-    Test LatLon method offset
+    Test LatLon3 method offset
     '''
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3, -157.8167)  # locations: Palmyra Atoll and Honolulu, HI
     distance = palmyra.distance(honolulu)  # WGS84 distance is 1766.69130376 km
@@ -137,7 +137,7 @@ def test_LatLon_offset():
 
 def test_LatLon_project():
     '''
-    Test LatLon method project
+    Test LatLon3 method project
     '''
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     projection = pyproj.Proj(proj='utm', zone=3, ellps='WGS84')
