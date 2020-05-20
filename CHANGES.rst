@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.2.1 (MAY/20/2020)
+===================
+* Prepared for pypi and changed module name from LatLon to LatLon3
+
 1.1.7 (SEPT/7/2017)
 ====================
 * Bug fix exception in __init__ file.  Only relevant for making executable using pyinstaller

@@ -25,12 +25,6 @@ Features:
 Written July 22, 2014
 Author: Gen Del Raye
 
-Notes
------
-Conversion of coordinates between different coordinate systems is not unambiguous. This module is
-available as is as part of the HMC Python package, but shall not be used for 'official' coordinate projection or 
-distance calculations. Official conversions should only be done using dedicated tools as used by 
-Survey and Operations
 """
 
 

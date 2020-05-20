@@ -27,7 +27,7 @@ Methods for representing geographic coordinates (latitude and longitude) includi
 ------------
 Installation
 ------------
-*LatLon3* has only been tested in Python 2.7 and 3.5, and 3.8
+*LatLon3* has only been tested in Python 3.8
 
 Installation through pip::
 

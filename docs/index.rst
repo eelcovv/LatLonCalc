@@ -2,14 +2,7 @@
 LatLon
 ======
 
-This is the documentation of **LatLon**.
-
-.. note::
-
-    Conversion of coordinates between different coordinate systems is not unambiguous. This module is
-    available as is as part of the HMC Python package, but shall not be used for 'official' coordinate projection or
-    distance calculations. Official conversions should only be done using dedicated tools as used by
-    Survey and Operations
+This is the documentation of **LatLon3**.
 
 Contents
 ========
