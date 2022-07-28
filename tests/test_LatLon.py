@@ -7,6 +7,7 @@ Created on Sep 2, 2014
 @author: gdelraye
 '''
 
+import pytest
 import pyproj
 from numpy import (exp, angle, deg2rad, rad2deg)
 from numpy.testing import (assert_almost_equal, assert_equal)

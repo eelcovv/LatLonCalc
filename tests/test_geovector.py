@@ -7,6 +7,7 @@ Created on Sep 2, 2014
 @author: gdelraye
 """
 
+import pytest
 import math
 
 from LatLon3.LatLon import GeoVector
