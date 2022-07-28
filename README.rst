@@ -20,14 +20,16 @@ Methods for representing geographic coordinates (latitude and longitude) includi
 * Adding or subtracting a *Latlon* object and a *GeoVector* object creates a new *LatLon* object with
   the coordinates adjusted by the *GeoVector* object's distance and heading
 * *GeoVector* objects can be added, subtracted, multiplied or divided
-* The module name is called LatLon3 as it is an upgrade of the LatLon package at pypi for Python 3.8.
-  The original Author of LatLon is not maintaining the pypi package anymore, so we needed to change the name
+* The module name is called LatLon3 as it is an upgrade of the LatLon package at pypi for Python 3.9.
+  The support for Python 2 has been completely dropped.
+  The original author (Gen Del Raye) of LatLon is not maintaining the pypi package anymore, so a
+  new distribution  was published by Eelco van Vliet
 
 
 ------------
 Installation
 ------------
-*LatLon3* has only been tested in Python 3.8
+*LatLon3* has only been tested in Python 3.9
 
 Installation through pip::
 
@@ -36,7 +38,7 @@ Installation through pip::
 Requires the following non-standard libraries:
 
 	* *pyproj*
-	* *future*
+	* *numpy*
 
 
 -----------
@@ -154,5 +156,5 @@ Manipulate *LatLon* objects using *GeoVectors*::
 Note
 ====
 
-This project has been set up using PyScaffold 2.5.6. For details and usage
+This project has been set up using PyScaffold 4.2.1. For details and usage
 information on PyScaffold see http://pyscaffold.readthedocs.org/.
