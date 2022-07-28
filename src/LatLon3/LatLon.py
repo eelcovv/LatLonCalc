@@ -1,17 +1,10 @@
-from __future__ import division
-from __future__ import print_function
 
 import abc
 import math
 import re
 import warnings
-from builtins import object
-from builtins import str
-from builtins import zip
 
 import pyproj
-from future.utils import with_metaclass
-from past.builtins import cmp
 
 """
 Methods for representing geographic coordinates (latitude and longitude)
@@ -30,7 +23,7 @@ Author: Gen Del Raye
 
 # TODO: Write methods to convert -180 to 180 longitudes to 0 to 360 and vice versa
 
-class GeoCoord(with_metaclass(abc.ABCMeta, object)):
+class GeoCoord(abc.ABCMeta):
     """Abstract class representing geographic coordinates (i.e. latitude or longitude).
 
     Parameters
