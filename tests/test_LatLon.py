@@ -7,7 +7,6 @@ Created on Sep 2, 2014
 @author: gdelraye
 '''
 
-import pytest
 import pyproj
 from numpy import (exp, angle, deg2rad, rad2deg)
 from numpy.testing import (assert_almost_equal, assert_equal)
@@ -15,10 +14,10 @@ from numpy.testing import (assert_almost_equal, assert_equal)
 from LatLon3.LatLon import (LatLon, string2latlon, Latitude, Longitude)
 
 
-def test_LatLon_tostring():
-    '''
+def test_latlon_tostring():
+    """
     Test LatLon3 method to_string
-    '''
+    """
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     # Built-in string conversion (calls to_string):
     assert str(palmyra) == '5.8833, -162.0833'  # Failure of __str__ method
@@ -32,10 +31,10 @@ def test_LatLon_tostring():
                  ('N_5deg 52.998"', 'W_162deg 4.998"'))
 
 
-def test_LatLon_fromstring():
-    '''
+def test_latlon_fromstring():
+    """
     Test LatLon3 method from_string
-    '''
+    """
     lat_str, lon_str = '5.8833', '-162.0833'  # test location is Palmyra Atoll
     # Convert decimal degrees string to LatLon3 object:
     palmyra = string2latlon(lat_str, lon_str, 'D')
@@ -58,20 +57,20 @@ def test_LatLon_fromstring():
         -162.0833).decimal_degree)  # Failure to convert from hemisphere, degree, minutes string
 
 
-def test_LatLon_complex():
-    '''
+def test_latlon_complex():
+    """
     Test LatLon3 method complex
-    '''
+    """
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     complex_coords = palmyra.complex()  # Convert lat/lon coordinate to single complex number
     assert complex_coords.real == 5.8833  # Failed to retrieve latitude from complex coordinate
     assert complex_coords.imag == -162.0833  # Failed to retrieve longitude from complex coordinate
 
 
-def test_LatLon_heading():
-    '''
+def test_latlon_heading():
+    """
     Test LatLon3 methods heading_initial and heading_reverse
-    '''
+    """
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3,
                                                           -157.8167)  # locations: Palmyra Atoll and Honolulu, HI
     true_heading = 14.691  # Correct heading in from Palmyra to Honolulu to 3 decimal places
@@ -110,7 +109,7 @@ def test_LatLon_heading():
     assert_almost_equal(reverse_heading, true_heading, decimal=3)
 
 
-def test_LatLon_distance():
+def test_latlon_distance():
     '''
     Test LatLon3 method distance
     '''
@@ -131,7 +130,7 @@ def test_LatLon_distance():
         wgs84_distance) == true_distance  # Failed to calculate WGS84 distance from north pole
 
 
-def test_LatLon_offset():
+def test_latlon_offset():
     '''
     Test LatLon3 method offset
     '''
@@ -149,7 +148,7 @@ def test_LatLon_offset():
     assert honolulu.almost_equal(vector_hnl)
 
 
-def test_LatLon_project():
+def test_latlon_project():
     '''
     Test LatLon3 method project
     '''
@@ -162,13 +161,13 @@ def test_LatLon_project():
 
 
 def main():
-    test_LatLon_tostring()
-    test_LatLon_fromstring()
-    test_LatLon_complex()
-    test_LatLon_heading()
-    test_LatLon_distance()
-    test_LatLon_offset()
-    test_LatLon_project()
+    test_latlon_tostring()
+    test_latlon_fromstring()
+    test_latlon_complex()
+    test_latlon_heading()
+    test_latlon_distance()
+    test_latlon_offset()
+    test_latlon_project()
 
 
 if __name__ == "__main__":

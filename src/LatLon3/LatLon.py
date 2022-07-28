@@ -26,17 +26,17 @@ def cmp(a, b):
 
 # TODO: Write methods to convert -180 to 180 longitudes to 0 to 360 and vice versa
 
-class GeoCoord(abc.ABCMeta):
+class GeoCoord:
     """Abstract class representing geographic coordinates (i.e. latitude or longitude).
 
     Parameters
     ----------
     degree : scalar
-       integer or decimal degrees. If decimal degrees are given (e.g. 5.83), the fractional values (0.83) will be added
-       to the minute and second variables.
+       integer or decimal degrees. If decimal degrees are given (e.g. 5.83), the fractional values
+       (0.83) will be added to the minute and second variables.
     minute : scalar
-        integer or decimal minutes. If decimal minutes are given (e.g. 49.17), the fractional values (0.17) will be
-        added to the second variable.
+        integer or decimal minutes. If decimal minutes are given (e.g. 49.17), the fractional values
+        (0.17) will be added to the second variable.
     second : scalar
         decimal minutes.
 
@@ -97,14 +97,12 @@ class GeoCoord(abc.ABCMeta):
         self.degree, self.minute, self.decimal_minute, self.second = self._calc_degreeminutes(
             self.decimal_degree)
 
-    @abc.abstractmethod
     def get_hemisphere(self):
         """
         Dummy method, used in child classes such as Latitude and Longitude
         """
         pass
 
-    @abc.abstractmethod
     def set_hemisphere(self):
         """
         Dummy method, used in child classes such as Latitude and Longitude
@@ -216,10 +214,14 @@ class GeoCoord(abc.ABCMeta):
         return "GeoCoord"
 
 
+# noinspection DuplicatedCode
 class Latitude(GeoCoord):
     """
     Coordinate object specific for latitude coordinates
     """
+
+    def __init__(self, degree=0, minute=0, second=0):
+        super().__init__(degree, minute, second)
 
     def get_hemisphere(self):
         """
@@ -260,7 +262,8 @@ class Longitude(GeoCoord):
     """
 
     def __init__(self, degree=0, minute=0, second=0):
-        super(Longitude, self).__init__(degree, minute, second)  # Initialize the GeoCoord
+        super().__init__(degree, minute, second)
+
         decimal_degree = self.range180()  # Make sure that longitudes are reported in the range -180 to 180
         self.degree, self.minute, self.decimal_minute, self.second = self._calc_degreeminutes(
             decimal_degree)
@@ -358,7 +361,8 @@ def string2geocoord(coord_str, coord_class, format_str="D"):
                                      format_str).start()  # Find the first non-hemisphere identifier
         format_str = "% %".join(
             (
-            format_str[new_format_start:], format_str[0]))  # Move hemisphere identifier to the back
+                format_str[new_format_start:],
+                format_str[0]))  # Move hemisphere identifier to the back
         coord_str = " ".join(
             (coord_str[new_coord_start:], coord_str[0]))  # Move hemisphere identifier to the back
     format_elements = format_str.split("%")
@@ -378,7 +382,7 @@ def string2geocoord(coord_str, coord_class, format_str="D"):
     return new_coord
 
 
-class LatLon(object):
+class LatLon:
     """
     Object representing lat/lon pairs
     """
