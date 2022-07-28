@@ -3,4 +3,4 @@ Developers
 ==========
 
 * Gen Del Raye <gdelraye@hawaii.edu>
-* Eelco van Vliet <evanvliet@hmc-heerema.com>
+* Eelco van Vliet <eelcovv@gmail.com>
