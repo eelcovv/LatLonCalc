@@ -34,7 +34,7 @@ except ImportError:
     from sphinx import apidoc
 
 output_dir = os.path.join(__location__, "api")
-module_dir = os.path.join(__location__, "../src/latlon3")
+module_dir = os.path.join(__location__, "../src/LatLon3")
 try:
     shutil.rmtree(output_dir)
 except FileNotFoundError:
@@ -88,7 +88,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "LatLon3"
-copyright = "2022, eelco"
+copyright = "2022, Eelco"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -99,7 +99,7 @@ copyright = "2022, eelco"
 # If you don’t need the separation provided between version and release,
 # just set them both to the same value.
 try:
-    from latlon3 import __version__ as version
+    from LatLon3 import __version__ as version
 except ImportError:
     version = ""
 
