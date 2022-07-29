@@ -135,6 +135,7 @@ Examples
 Import the classes::
 
    >> from LatLonCalc.LatLon import LatLon, Latitude, Longitude
+
 Create a *LatLon* object from coordinates::
 
     >> palmyra = LatLon(Latitude(5.8833), Longitude(-162.0833)) # Location of Palmyra Atoll in decimal degrees

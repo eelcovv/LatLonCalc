@@ -1,7 +1,7 @@
 # .coveragerc to control coverage.py
 [run]
 branch = True
-source = latlon3
+source = LatLonCalc
 # omit = bad_file.py
 
 [paths]
