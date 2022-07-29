@@ -45,7 +45,7 @@ Installation
 
 Installation through pip::
 
-    $ pip install LatLon3
+    $ pip install LatLonCalc
 
 Requires the following non-standard libraries:
 
@@ -56,26 +56,27 @@ Requires the following non-standard libraries:
 -----------
 Usage Notes
 -----------
-Usage of *LatLon* is primarily through the class *LatLon*, which is designed to hold a single pair of
-*Latitude* and *Longitude* objects. Strings can be converted to *LatLon* objects using the method
-*string2latlon*, and to *Latitude* or *Longitude* objects using *string2geocoord*. Alternatively, a LatLon
-object can be constructed by subtracting two *LatLon* objects, or adding or subtracting a *Latlon* object
-and a *GeoVector* object.
+Usage of *LatLonCalc* is primarily through the class *LatLon*, which is designed to hold a single
+pair of *Latitude* and *Longitude* objects. Strings can be converted to *LatLon* objects using the
+method *string2latlon*, and to *Latitude* or *Longitude* objects using *string2geocoord*.
+Alternatively, a LatLon object can be constructed by subtracting two *LatLon* objects, or adding or
+subtracting a *Latlon* object and a *GeoVector* object.
 
 Latitude or Longitude Construction
 ==================================
-Latitude of longitude construction is through the classes *Latitude* and *Longitude*, respectively. You can
-pass a latitude or longitude coordinate in any combination of decimal degrees, degrees and minutes, or
-degrees minutes and seconds. Alternatively, you can pass a formatted string using the function *string2geocoord*
-for a string containing a single latitude or longitude, or *string2latlon* for a pair of strings representing
-the latitude and longitude.
+Latitude of longitude construction is through the classes *Latitude* and *Longitude*, respectively.
+You can pass a latitude or longitude coordinate in any combination of decimal degrees, degrees and
+minutes, or degrees minutes and seconds. Alternatively, you can pass a formatted string using the
+function *string2geocoord* for a string containing a single latitude or longitude, or
+*string2latlon* for a pair of strings representing the latitude and longitude.
 
 String formatting:
 ==================
-*string2latlon* and *string2geocoord* both take a *formatter* string which is loosely modeled on the *format*
-keyword used in *datetime's* *strftime* function. Indicator characters (e.g. *H* or *D*) are placed between
-a specific separator character (*%*) to specify the way in which a coordinate string is formatted. Possible
-values are as follows:
+*string2latlon* and *string2geocoord* both take a *formatter* string which is loosely modeled on the
+*format* keyword used in *datetime's* *strftime* function.
+Indicator characters (e.g. *H* or *D*) are placed between a specific separator character (*%*) to
+specify the way in which a coordinate string is formatted.
+Possible values are as follows:
 
           *H* is a hemisphere identifier (e.g. N, S, E or W)
 
@@ -96,36 +97,44 @@ values are as follows:
 
 *Important*
 ===========
-One format that will not currently work is one where the hemisphere identifier and a degree or decimal degree
-are not separated by any characters. For example  '5 52 59.88 N' is valid whereas '5 52 59.88N' is not.
+One format that will not currently work is one where the hemisphere identifier and a degree or
+decimal degree are not separated by any characters. For example  '5 52 59.88 N' is valid whereas
+'5 52 59.88N' is not.
 
 String output:
 ==============
-Both *LatLon* and *Latitude* and *Longitude* objects include a *to_string()* method for outputting a formatted
-coordinate.
+Both *LatLon* and *Latitude* and *Longitude* objects include a *to_string()* method for outputting
+a formatted coordinate.
 
 Projection:
 ===========
-Use *LatLon.project* to transform geographical coordinates into a chosen projection. Requires that you pass it a
-*pyproj* or *basemap* projection.
+Use *LatLon.project* to transform geographical coordinates into a chosen projection. Requires that
+you pass it a *pyproj* or *basemap* projection.
 
 Distance and Heading Calculation:
 =================================
-*LatLon* objects have a *distance()* method which accepts a 2nd *LatLon* object as an argument. *distance()* will
-calculate the great-circle distance between the two coordinates using the WGS84 ellipsoid by default. To use the
-more approximate FAI sphere, set *ellipse* to 'sphere'. Initial and reverse headings (in degrees) can be calculated
-in a similar way using the *heading_initial()* and *heading_reverse()* methods. Alternatively, subtracting one
-*LatLon* object from another will return a *GeoVector* object with the attributes heading and distance.
+*LatLon* objects have a *distance()* method which accepts a 2nd *LatLon* object as an argument.
+*distance()* will calculate the great-circle distance between the two coordinates using the WGS84
+ellipsoid by default.
+To use the more approximate FAI sphere, set *ellipse* to 'sphere'. Initial and reverse headings
+(in degrees) can be calculated in a similar way using the *heading_initial()* and
+*heading_reverse()* methods.
+Alternatively, subtracting one *LatLon* object from another will return a *GeoVector* object with
+the attributes heading and distance.
 
 Creating a New LatLon Object by Offset from Another One:
 ========================================================
-Use the *offset()* method of *LatLon* objects, which takes an initial heading (in degrees) and distance (in km) to
-return a new *LatLon* object at the offset coordinates. Also, you can perform the same operation by adding or
-subtracting a LatLon object with a GeoVector object.
+Use the *offset()* method of *LatLon* objects, which takes an initial heading (in degrees) and
+distance (in km) to return a new *LatLon* object at the offset coordinates.
+Also, you can perform the same operation by adding or subtracting a LatLon object with a GeoVector
+object.
 
 --------
 Examples
 --------
+Import the classes::
+
+   >> from LatLonCalc.LatLon import LatLon, Latitude, Longitude
 Create a *LatLon* object from coordinates::
 
     >> palmyra = LatLon(Latitude(5.8833), Longitude(-162.0833)) # Location of Palmyra Atoll in decimal degrees
@@ -165,8 +174,19 @@ Manipulate *LatLon* objects using *GeoVectors*::
     print palmyra + (vector/2.0) # Recreate the coordinates of Honolulu by adding half of vector to palmyra
     21.3, -157.8167
 
-Note
-====
 
-This project has been set up using PyScaffold 4.2.1. For details and usage
-information on PyScaffold see http://pyscaffold.readthedocs.org/.
+
+
+Publication Notes
+=================
+
+* This project has been set up using PyScaffold 4.2.1. For details and usage information on
+  PyScaffold see http://pyscaffold.readthedocs.org/
+* The following steps were done for publishing the package to PyPi::
+
+    > tox -e build                          # build the package locally
+    > tox -e publish                        # publish the package to TesPyPi
+    > tox -e docs                           # build the documentation
+    > tox -e publish -- --repository pypi   # Publish the package to PyPi
+
+
