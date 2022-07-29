@@ -1,5 +1,5 @@
 """
-    Setup file for latloncal.
+    Setup file for latloncalc.
     Use setup.cfg to configure your project.
 
     This file was generated with PyScaffold 4.2.1.

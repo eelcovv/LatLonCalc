@@ -1,5 +1,5 @@
 """
-Test routines for class latloncal in package latloncal
+Test routines for class latloncalc in package latloncalc
 Designed for use with pytest
 
 Created on Sep 2, 2014
@@ -18,7 +18,7 @@ from latloncalc.latlon import (LatLon, string2latlon, Latitude, Longitude)
 
 def test_latlon_tostring():
     """
-    Test latloncal method to_string
+    Test latloncalc method to_string
     """
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     # Built-in string conversion (calls to_string):
@@ -35,21 +35,21 @@ def test_latlon_tostring():
 
 def test_latlon_fromstring():
     """
-    Test latloncal method from_string
+    Test latloncalc method from_string
     """
     lat_str, lon_str = '5.8833', '-162.0833'  # test location is Palmyra Atoll
-    # Convert decimal degrees string to latloncal object:
+    # Convert decimal degrees string to latloncalc object:
     palmyra = string2latlon(lat_str, lon_str, 'D')
     # Failure to convert from degree, minutes, second, hemisphere string
     assert str(palmyra) == '5.8833, -162.0833'
     lat_str, lon_str = '5, 52, 59.88, N', '162, 4, 59.88, W'
-    # Convert degrees minutes second string with hemisphere identifier to latloncal object:
+    # Convert degrees minutes second string with hemisphere identifier to latloncalc object:
     palmyra = string2latlon(lat_str, lon_str, 'd%, %m%, %S%, %H')
     assert_almost_equal(palmyra.lat.decimal_degree, 5.8833)
     # Failure to convert from degree, minutes, second, hemisphere string
     assert_almost_equal(palmyra.lon.decimal_degree, -162.0833)
     lat_str, lon_str = 'N_5deg 52.998', 'W_162deg 4.998'
-    # Convert degrees minutes second string with fancy separators to latloncal object:
+    # Convert degrees minutes second string with fancy separators to latloncalc object:
     palmyra = string2latlon(lat_str, lon_str, 'H%_%d%deg %M')
     # convert to lat decimal degree to solve round of problem
     # Failure to convert from hemisphere, degree, minutes string
@@ -60,7 +60,7 @@ def test_latlon_fromstring():
 
 def test_latlon_complex():
     """
-    Test latloncal method complex
+    Test latloncalc method complex
     """
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     complex_coords = palmyra.complex()  # Convert lat/lon coordinate to single complex number
@@ -70,7 +70,7 @@ def test_latlon_complex():
 
 def test_latlon_heading():
     """
-    Test latloncal methods heading_initial and heading_reverse
+    Test latloncalc methods heading_initial and heading_reverse
     """
     # locations: Palmyra Atoll and Honolulu, HI
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3,
@@ -116,7 +116,7 @@ def test_latlon_heading():
 
 def test_latlon_distance():
     """
-    Test latloncal method distance
+    Test latloncalc method distance
     """
     # locations: Palmyra Atoll and Honolulu, HI
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3, -157.8167)
@@ -137,7 +137,7 @@ def test_latlon_distance():
 
 def test_latlon_offset():
     """
-    Test latloncal method offset
+    Test latloncalc method offset
     """
     # locations: Palmyra Atoll and Honolulu, HI
     palmyra, honolulu = LatLon(5.8833, -162.0833), LatLon(21.3, -157.8167)
@@ -156,7 +156,7 @@ def test_latlon_offset():
 
 def test_latlon_project():
     """
-    Test latloncal method project
+    Test latloncalc method project
     """
     palmyra = LatLon(5.8833, -162.0833)  # test location is Palmyra Atoll
     projection = pyproj.Proj(proj='utm', zone=3, ellps='WGS84')
