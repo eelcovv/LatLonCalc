@@ -17,10 +17,14 @@ Features:
 Written July 22, 2014
 Author: Gen Del Raye
 
+Modified for Python 3 and drop Python 2 support
+Eelco van Vliet 
+
 """
 
 
 def cmp(a, b):
+    """ required for Python2 cmp funtion that was dropped in Python 3 """
     return (a > b) - (a < b)
 
 

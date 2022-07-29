@@ -1,5 +1,5 @@
 """
-Test routines for class GeoVector in package LatLon3
+Test routines for class GeoVector in package LatLonCalc
 Designed for use with pytest
 
 Created on Sep 2, 2014
@@ -11,7 +11,7 @@ update to Python 3.9: E. van Vliet (July, 2022)
 
 import math
 
-from LatLon3.LatLon import GeoVector
+from LatLonCalc.LatLon import GeoVector
 
 
 def test_constructor():

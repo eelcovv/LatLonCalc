@@ -1,5 +1,5 @@
 """
-    Setup file for LatLon3.
+    Setup file for LatLonCalc.
     Use setup.cfg to configure your project.
 
     This file was generated with PyScaffold 4.2.1.
