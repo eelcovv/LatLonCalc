@@ -1,5 +1,5 @@
 """
-Test routines for class GeoVector in package LatLonCalc
+Test routines for class GeoVector in package latloncal
 Designed for use with pytest
 
 Created on Sep 2, 2014

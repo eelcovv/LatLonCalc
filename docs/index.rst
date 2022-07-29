@@ -1,6 +1,6 @@
-=======
+==========
 LatLonCalc
-=======
+==========
 
 This is the documentation of **LatLonCalc**.
 
