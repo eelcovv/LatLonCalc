@@ -46,7 +46,7 @@ that any documentation update is done in the same way was a code contribution.
 The documentation was setup using  reStructuredText_ files
 
 .. tip::
-  Please notice that the `https://github.com/eelcovv/LatLonCalc`_ provides a quick way of
+  Please notice that the `GitHub web interface`_ provides a quick way of
   propose changes in ``LatLonCalc``'s files. While this mechanism can
   be tricky for normal code contributions, it works perfectly fine for
   contributing to the docs, and can be quite handy.
