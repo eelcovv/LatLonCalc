@@ -1,6 +1,0 @@
-importlib_metadata~=4.11.3
-numpy~=1.22.3
-pyproj~=3.3.0
-setuptools~=62.3.2
-Sphinx~=5.0.2
-sphinx_rtd_theme~=0.4.3
