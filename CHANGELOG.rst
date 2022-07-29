@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.3.7 (JUL/28/2022)
+1.3.9 (JUL/28/2022)
 ===================
 * dropped Python 2 support, upgraded to Python 3.9
 * Fixed unit tests
