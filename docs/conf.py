@@ -88,7 +88,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "latloncalc"
-copyright = "2022, MIT"
+copyright = "2022, Gen Del Raye"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
