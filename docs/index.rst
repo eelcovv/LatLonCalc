@@ -1,8 +1,8 @@
 =======
-LatLon3
+LatLonCalc
 =======
 
-This is the documentation of **LatLon3**.
+This is the documentation of **LatLonCalc**.
 
 .. note::
 
