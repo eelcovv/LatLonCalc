@@ -118,7 +118,7 @@ Clone the repository
 
 #. Create an user account on |the repository service| if you do not already have one.
 #. Fork the project repository_: click on the *Fork* button near the top of the
-page. This creates a copy of the code under your account on |the repository service|.
+   page. This creates a copy of the code under your account on |the repository service|.
 #. Clone this copy to your local disk::
 
     git clone git@github.com:YourLogin/LatLonCalc.git
@@ -128,7 +128,7 @@ page. This creates a copy of the code under your account on |the repository serv
 
     pip install -U pip setuptools -e .
 
-to be able to import the package under development in the Python REPL.
+   to be able to import the package under development in the Python REPL.
 
 ``LatLonCalc`` comes with a lot of hooks configured to automatically help the
 developer to check the code being written.
@@ -140,10 +140,10 @@ Implement your changes
 
     git checkout -b my-feature
 
-and start making changes. Never work on the main branch!
+   and start making changes. Never work on the main branch!
 
 #. Start your work on this branch. Don't forget to add docstrings_ to new
-functions, modules and classes, especially if they are part of public APIs.
+   functions, modules and classes, especially if they are part of public APIs.
 
 #. Add yourself to the list of contributors in ``AUTHORS.rst``.
 
