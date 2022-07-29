@@ -134,7 +134,7 @@ Examples
 --------
 Import the classes::
 
-   >> from latloncalc.LatLon import LatLon, Latitude, Longitude
+   >> from latloncalc.latlon import LatLon, Latitude, Longitude
 
 Create a *LatLon* object from coordinates::
 
