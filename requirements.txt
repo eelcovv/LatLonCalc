@@ -4,12 +4,11 @@
 #
 #    pip-compile
 #
-importlib-metadata==4.11.3 ; python_version > "3.8"
+importlib-metadata; python_version > "3.8"
     # via LatLonCalc (setup.py)
-zipp==3.8.1
+zipp
     # via importlib-metadata
-
-numpy==1.22.3
-pyproj==3.3.0
-setuptools==62.3.2
-Sphinx==5.0.2
+numpy
+pyproj
+setuptools
+Sphinx
