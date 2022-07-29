@@ -10,7 +10,6 @@
 import os
 import sys
 import shutil
-import sphinx_rtd_theme
 
 # -- Path setup --------------------------------------------------------------
 
