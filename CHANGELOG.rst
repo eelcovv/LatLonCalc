@@ -2,11 +2,11 @@
 Changelog
 =========
 
-1.4.3 (JUL/29/2022)
+1.4.4 (JUL/29/2022)
 ===================
 * dropped Python 2 support, upgraded to Python 3.9
 * Fixed unit tests
-* Renamed project to latloncalc to prevent name conflict
+* Renamed project to *latloncalc* to prevent name conflict. The module is now call *latlon*.
 * Included tox setup
 * Added documentation on read the docs
 
