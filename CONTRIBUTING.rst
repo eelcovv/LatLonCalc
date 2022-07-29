@@ -116,7 +116,7 @@ The package has been tested with the following requirements.txt::
 Clone the repository
 --------------------
 
-#. Create an user account on |https//github.com| if you do not already have one.
+#. Create an user account on |the repository service| if you do not already have one.
 #. Fork the project repository_: click on the *Fork* button near the top of the
 page. This creates a copy of the code under your account on |the repository service|.
 #. Clone this copy to your local disk::
@@ -271,8 +271,8 @@ on PyPI_, the following steps can be used to release a new version for
 .. |the repository service| replace:: GitHub
 .. |contribute button| replace:: "Create pull request"
 
-.. _repository: https://github.com/<USERNAME>/LatLonCalc
-.. _issue tracker: https://github.com/<USERNAME>/LatLonCalc/issues
+.. _repository: https://github.com/eelcovv/LatLonCalc
+.. _issue tracker: https://github.com/eelcovv/LatLonCalc/issues
 .. <-- end -->
 
 
