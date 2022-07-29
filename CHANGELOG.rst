@@ -2,12 +2,13 @@
 Changelog
 =========
 
-1.4.2 (JUL/29/2022)
+1.4.3 (JUL/29/2022)
 ===================
 * dropped Python 2 support, upgraded to Python 3.9
 * Fixed unit tests
 * Renamed project to LatLonCalc to prevent name conflict
 * Included tox setup
+* Added documentation on read the docs
 
 1.2.1 (MAY/20/2020)
 ===================
