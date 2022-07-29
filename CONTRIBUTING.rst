@@ -1,4 +1,4 @@
-Welcome to ``LatLon3`` contributor's guide.
+Welcome to ``LatLonCalc`` contributor's guide.
 
 This document focuses on getting any potential contributor familiarized
 with the development processes, but `other kinds of contributions`_ are also
@@ -17,7 +17,7 @@ guidelines.
 Issue Reports
 =============
 
-If you experience bugs or general issues with ``LatLon3``, please have a look
+If you experience bugs or general issues with ``LatLonCalc``, please have a look
 on the `issue tracker`_. If you don't see anything useful there, please feel
 free to fire an issue report.
 
@@ -36,52 +36,50 @@ you help us to identify the root cause of the issue.
 Documentation Improvements
 ==========================
 
-You can help improve ``LatLon3`` docs by making them more readable and coherent, or
+You can help improve ``LatLonCalc`` docs by making them more readable and coherent, or
 by adding missing information and correcting mistakes.
 
-``LatLon3`` documentation uses Sphinx_ as its main documentation compiler.
+``LatLonCalc`` documentation uses Sphinx_ as its main documentation compiler.
 This means that the docs are kept in the same repository as the project code, and
 that any documentation update is done in the same way was a code contribution.
 
-.. todo:: Don't forget to mention which markup language you are using.
+The documentation was setup using  reStructuredText_ files
 
-    e.g.,  reStructuredText_ or CommonMark_ with MyST_ extensions.
+.. tip::
+  Please notice that the `https://github.com/eelcovv/LatLonCalc`_ provides a quick way of
+  propose changes in ``LatLonCalc``'s files. While this mechanism can
+  be tricky for normal code contributions, it works perfectly fine for
+  contributing to the docs, and can be quite handy.
 
-.. todo:: If your project is hosted on GitHub, you can also mention the following tip:
-
-   .. tip::
-      Please notice that the `GitHub web interface`_ provides a quick way of
-      propose changes in ``LatLon3``'s files. While this mechanism can
-      be tricky for normal code contributions, it works perfectly fine for
-      contributing to the docs, and can be quite handy.
-
-      If you are interested in trying this method out, please navigate to
-      the ``docs`` folder in the source repository_, find which file you
-      would like to propose changes and click in the little pencil icon at the
-      top, to open `GitHub's code editor`_. Once you finish editing the file,
-      please write a message in the form at the bottom of the page describing
-      which changes have you made and what are the motivations behind them and
-      submit your proposal.
+  If you are interested in trying this method out, please navigate to
+  the ``docs`` folder in the source repository_, find which file you
+  would like to propose changes and click in the little pencil icon at the
+  top, to open `GitHub's code editor`_. Once you finish editing the file,
+  please write a message in the form at the bottom of the page describing
+  which changes have you made and what are the motivations behind them and
+  submit your proposal.
 
 When working on documentation changes in your local machine, you can
 compile them using |tox|_::
 
-    tox -e docs
+tox -e docs
 
 and use Python's built-in web server for a preview in your web browser
 (``http://localhost:8000``)::
 
-    python3 -m http.server --directory 'docs/_build/html'
+python3 -m http.server --directory 'docs/_build/html'
 
 
 Code Contributions
 ==================
 
-.. todo:: Please include a reference or explanation about the internals of the project.
+The *LatLonCalc.LatLon* module contains the following classes:
 
-   An architecture description, design principles or at least a summary of the
-   main concepts will make it easy for potential contributors to get started
-   quickly.
+* *GeoCoord*: Base class for coordinates
+* *Latitude*: Object derived from GeoCoord with the Latitude coordinate
+* *Longitude*: Object derived from GeoCoord with the Longitude coordinate
+* *LatLon*: Object with the *Latitude*/*Longitude* coordinates
+* *GeoVetorc*: Object representing the distance and heading between two lat/lon coordinates
 
 Submit an issue
 ---------------
@@ -97,58 +95,67 @@ Before you start coding, we recommend creating an isolated `virtual
 environment`_ to avoid any problems with your installed Python packages.
 This can easily be done via either |virtualenv|_::
 
-    virtualenv <PATH TO VENV>
-    source <PATH TO VENV>/bin/activate
+virtualenv <PATH TO VENV>
+source <PATH TO VENV>/bin/activate
 
 or Miniconda_::
 
-    conda create -n LatLon3 python=3 six virtualenv pytest pytest-cov
-    conda activate LatLon3
+conda create -n LatLonCalc python=3 six virtualenv pytest pytest-cov
+conda activate LatLonCalc
+
+The package has been tested with the following requirements.txt::
+
+    importlib_metadata==4.11.3
+    numpy==1.22.3
+    pyproj==3.3.0
+    setuptools==62.3.2
+    Sphinx==5.0.2
+
 
 Clone the repository
 --------------------
 
-#. Create an user account on |the repository service| if you do not already have one.
+#. Create an user account on |https//github.com| if you do not already have one.
 #. Fork the project repository_: click on the *Fork* button near the top of the
-   page. This creates a copy of the code under your account on |the repository service|.
+page. This creates a copy of the code under your account on |the repository service|.
 #. Clone this copy to your local disk::
 
-    git clone git@github.com:YourLogin/LatLon3.git
-    cd LatLon3
+git clone git@github.com:YourLogin/LatLonCalc.git
+cd LatLonCalc
 
 #. You should run::
 
-    pip install -U pip setuptools -e .
+pip install -U pip setuptools -e .
 
-   to be able to import the package under development in the Python REPL.
+to be able to import the package under development in the Python REPL.
 
-   .. todo:: if you are not using pre-commit, please remove the following item:
+.. todo:: if you are not using pre-commit, please remove the following item:
 
 #. Install |pre-commit|_::
 
-    pip install pre-commit
-    pre-commit install
+pip install pre-commit
+pre-commit install
 
-   ``LatLon3`` comes with a lot of hooks configured to automatically help the
-   developer to check the code being written.
+``LatLonCalc`` comes with a lot of hooks configured to automatically help the
+developer to check the code being written.
 
 Implement your changes
 ----------------------
 
 #. Create a branch to hold your changes::
 
-    git checkout -b my-feature
+git checkout -b my-feature
 
-   and start making changes. Never work on the main branch!
+and start making changes. Never work on the main branch!
 
 #. Start your work on this branch. Don't forget to add docstrings_ to new
-   functions, modules and classes, especially if they are part of public APIs.
+functions, modules and classes, especially if they are part of public APIs.
 
 #. Add yourself to the list of contributors in ``AUTHORS.rst``.
 
 #. When you’re done editing, do::
 
-    git add <MODIFIED FILES>
+git add <MODIFIED FILES>
     git commit
 
    to record your changes in git_.
@@ -249,14 +256,9 @@ Maintainer tasks
 Releases
 --------
 
-.. todo:: This section assumes you are using PyPI to publicly release your package.
-
-   If instead you are using a different/private package index, please update
-   the instructions accordingly.
-
 If you are part of the group of maintainers and have correct user permissions
 on PyPI_, the following steps can be used to release a new version for
-``LatLon3``:
+``LatLonCalc``:
 
 #. Make sure all unit tests are successful.
 #. Tag the current commit on the main branch with a release tag, e.g., ``v1.2.3``.
@@ -280,13 +282,12 @@ on PyPI_, the following steps can be used to release a new version for
 
 
 .. <-- strart -->
-.. todo:: Please review and change the following definitions:
 
 .. |the repository service| replace:: GitHub
 .. |contribute button| replace:: "Create pull request"
 
-.. _repository: https://github.com/<USERNAME>/LatLon3
-.. _issue tracker: https://github.com/<USERNAME>/LatLon3/issues
+.. _repository: https://github.com/<USERNAME>/LatLonCalc
+.. _issue tracker: https://github.com/<USERNAME>/LatLonCalc/issues
 .. <-- end -->
 
 
