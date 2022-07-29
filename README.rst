@@ -1,6 +1,6 @@
-=======
-LatLon3
-=======
+==========
+LatLonCalc
+==========
 --------
 Features
 --------
@@ -20,10 +20,22 @@ Methods for representing geographic coordinates (latitude and longitude) includi
 * Adding or subtracting a *Latlon* object and a *GeoVector* object creates a new *LatLon* object with
   the coordinates adjusted by the *GeoVector* object's distance and heading
 * *GeoVector* objects can be added, subtracted, multiplied or divided
-* The module name is called LatLon3 as it is an upgrade of the LatLon package at pypi for Python 3.9.
-  The support for Python 2 has been completely dropped.
-  The original author (Gen Del Raye) of LatLon is not maintaining the pypi package anymore, so a
-  new distribution  was published by Eelco van Vliet
+
+-----
+Notes
+-----
+* The package LatLonCalc is a fork of the original package LatLon written by Gen Del Raye.
+* LatLonCalc is essentially the same, except that Python 3 support was included and Python 2 support was
+  dropped.
+* A new name was created because LatLon was abandoned and the author does not respond on pull
+  requests anymore.
+* Another copy of the original packages was made by Jiho Persy Lee with  the name LatLon3.
+  This package is also essentially the same as the original package; also Python 3 support was
+  included without dropping the Python 2 support. However, in this version, unit tests and
+  documentation were dropped.
+* If you are interested in a Python 3 only version of LatLon with Unit testing and documentation,
+  use LatLonCalc, otherwise LatLon3 can be used.
+
 
 
 ------------
