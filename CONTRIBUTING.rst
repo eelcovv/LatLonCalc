@@ -1,4 +1,4 @@
-Welcome to ``LatLonCalc`` contributor's guide.
+Welcome to ``latloncalc`` contributor's guide.
 
 This document focuses on getting any potential contributor familiarized
 with the development processes, but `other kinds of contributions`_ are also
@@ -17,7 +17,7 @@ guidelines.
 Issue Reports
 =============
 
-If you experience bugs or general issues with ``LatLonCalc``, please have a look
+If you experience bugs or general issues with ``latloncalc``, please have a look
 on the `issue tracker`_. If you don't see anything useful there, please feel
 free to fire an issue report.
 
@@ -36,10 +36,10 @@ you help us to identify the root cause of the issue.
 Documentation Improvements
 ==========================
 
-You can help improve ``LatLonCalc`` docs by making them more readable and coherent, or
+You can help improve ``latloncalc`` docs by making them more readable and coherent, or
 by adding missing information and correcting mistakes.
 
-``LatLonCalc`` documentation uses Sphinx_ as its main documentation compiler.
+``latloncalc`` documentation uses Sphinx_ as its main documentation compiler.
 This means that the docs are kept in the same repository as the project code, and
 that any documentation update is done in the same way was a code contribution.
 
@@ -47,7 +47,7 @@ The documentation was setup using  reStructuredText_ files
 
 .. tip::
   Please notice that the `GitHub web interface`_ provides a quick way of
-  propose changes in ``LatLonCalc``'s files. While this mechanism can
+  propose changes in ``latloncalc``'s files. While this mechanism can
   be tricky for normal code contributions, it works perfectly fine for
   contributing to the docs, and can be quite handy.
 
@@ -73,7 +73,7 @@ and use Python's built-in web server for a preview in your web browser
 Code Contributions
 ==================
 
-The *LatLonCalc.LatLon* module contains the following classes:
+The *latloncalc.latlon* module contains the following classes:
 
 * *GeoCoord*: Base class for coordinates
 * *Latitude*: Object derived from GeoCoord with the Latitude coordinate
@@ -100,8 +100,8 @@ This can easily be done via either |virtualenv|_::
 
 or Miniconda_::
 
-    conda create -n LatLonCalc python=3 six virtualenv pytest pytest-cov
-    conda activate LatLonCalc
+    conda create -n latloncalc python=3 six virtualenv pytest pytest-cov
+    conda activate latloncalc
 
 The package has been tested with the following requirements.txt::
 
@@ -121,8 +121,8 @@ Clone the repository
    page. This creates a copy of the code under your account on |the repository service|.
 #. Clone this copy to your local disk::
 
-    git clone git@github.com:YourLogin/LatLonCalc.git
-    cd LatLonCalc
+    git clone git@github.com:YourLogin/latloncalc.git
+    cd latloncalc
 
 #. You should run::
 
@@ -130,7 +130,7 @@ Clone the repository
 
    to be able to import the package under development in the Python REPL.
 
-``LatLonCalc`` comes with a lot of hooks configured to automatically help the
+``latloncalc`` comes with a lot of hooks configured to automatically help the
 developer to check the code being written.
 
 Implement your changes
@@ -243,7 +243,7 @@ Releases
 
 If you are part of the group of maintainers and have correct user permissions
 on PyPI_, the following steps can be used to release a new version for
-``LatLonCalc``:
+``latloncalc``:
 
 #. Make sure all unit tests are successful.
 #. Tag the current commit on the main branch with a release tag, e.g., ``v1.2.3``.
@@ -271,8 +271,8 @@ on PyPI_, the following steps can be used to release a new version for
 .. |the repository service| replace:: GitHub
 .. |contribute button| replace:: "Create pull request"
 
-.. _repository: https://github.com/eelcovv/LatLonCalc
-.. _issue tracker: https://github.com/eelcovv/LatLonCalc/issues
+.. _repository: https://github.com/eelcovv/latloncalc
+.. _issue tracker: https://github.com/eelcovv/latloncalc/issues
 .. <-- end -->
 
 

@@ -6,13 +6,13 @@ Changelog
 ===================
 * dropped Python 2 support, upgraded to Python 3.9
 * Fixed unit tests
-* Renamed project to LatLonCalc to prevent name conflict
+* Renamed project to latloncalc to prevent name conflict
 * Included tox setup
 * Added documentation on read the docs
 
 1.2.1 (MAY/20/2020)
 ===================
-* Prepared for pypi and changed module name from LatLon to LatLon3
+* Prepared for pypi and changed module name from latlon to latlon3
 
 1.1.7 (SEPT/7/2017)
 ====================
@@ -25,7 +25,7 @@ Changelog
 1.1.0 (JULY/03/2017)
 ====================
 
-* Applied futurize script to allow to run LatLon under Python 3.5
+* Applied futurize script to allow to run latlon under Python 3.5
 * Fixed some unit tests
 * Fixed the comparative operator
 * Made Docstrings compliant to Numpy Doc Style
@@ -47,10 +47,10 @@ Changelog
   with due north and continuing clockwise) even though it was in fact an angle (i.e. starting with (1, 0) and
   continuing anti-clockwise). The attribute name has now been changed to *heading* to eliminate confusion. The
   local variable *theta* is used for computations involving angle.
-* Added testing functions with *pytest* for class *LatLon* and *GeoVector*
-* Added *almost_equal* methods to class *LatLon* and *GeoVector* to deal with float errors in decimal degree
+* Added testing functions with *pytest* for class *latlon* and *GeoVector*
+* Added *almost_equal* methods to class *latlon* and *GeoVector* to deal with float errors in decimal degree
   specification
-* *LatLon.project* now returns *(x, y)* instead of *(y, x)* to be more consistent with the accepted convention.
+* *latlon.project* now returns *(x, y)* instead of *(y, x)* to be more consistent with the accepted convention.
 
 0.91 (AUGUST/28/2014)
 =====================
@@ -61,7 +61,7 @@ Changelog
 =====================
 
 * Updated magic methods for *GeoCoord* class
-* Added option for instantiating *LatLon* from scalars
+* Added option for instantiating *latlon* from scalars
 
 0.80 (AUGUST/27/2014)
 =====================
@@ -73,9 +73,9 @@ Changelog
 0.70 (AUGUST/27/2014)
 =====================
 
-* Deprecated *LatLon.distance_sphere* method. From now on use *distance(other, ellipse = 'sphere')* instead
-* Added *LatLon.bearing* method to return the initial bearing between two *LatLon* objects
-* Added *LatLon.offset* method to return a new LatLon object that is computed from an initial LatLon object plus
+* Deprecated *latlon.distance_sphere* method. From now on use *distance(other, ellipse = 'sphere')* instead
+* Added *latlon.bearing* method to return the initial bearing between two *latlon* objects
+* Added *latlon.offset* method to return a new latlon object that is computed from an initial latlon object plus
   a bearing and distance
 
 0.60 (AUGUST/27/2014)

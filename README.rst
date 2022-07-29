@@ -1,5 +1,5 @@
 ==========
-LatLonCalc
+latloncalc
 ==========
 --------
 Features
@@ -24,8 +24,8 @@ Methods for representing geographic coordinates (latitude and longitude) includi
 -----
 Notes
 -----
-* The package LatLonCalc is a fork of the original package LatLon written by Gen Del Raye.
-* LatLonCalc is essentially the same, except that Python 3 support was included and Python 2 support was
+* The package latloncalc is a fork of the original package LatLon written by Gen Del Raye.
+* latloncalc is essentially the same, except that Python 3 support was included and Python 2 support was
   dropped.
 * A new name was created because LatLon was abandoned and the author does not respond on pull
   requests anymore.
@@ -34,18 +34,18 @@ Notes
   included without dropping the Python 2 support. However, in this version, unit tests and
   documentation were dropped.
 * If you are interested in a Python 3 only version of LatLon with Unit testing and documentation,
-  use LatLonCalc, otherwise LatLon3 can be used.
+  use latloncalc, otherwise LatLon3 can be used.
 
 
 
 ------------
 Installation
 ------------
-*LatLonCalc* has been tested in Python 3.6, 3.7, 3.8, 3.9, and 3.10
+*latloncalc* has been tested in Python 3.6, 3.7, 3.8, 3.9, and 3.10
 
 Installation through pip::
 
-    $ pip install LatLonCalc
+    $ pip install latloncalc
 
 Requires the following non-standard libraries:
 
@@ -56,7 +56,7 @@ Requires the following non-standard libraries:
 -----------
 Usage Notes
 -----------
-Usage of *LatLonCalc* is primarily through the class *LatLon*, which is designed to hold a single
+Usage of *latloncalc* is primarily through the class *LatLon*, which is designed to hold a single
 pair of *Latitude* and *Longitude* objects. Strings can be converted to *LatLon* objects using the
 method *string2latlon*, and to *Latitude* or *Longitude* objects using *string2geocoord*.
 Alternatively, a LatLon object can be constructed by subtracting two *LatLon* objects, or adding or
@@ -134,7 +134,7 @@ Examples
 --------
 Import the classes::
 
-   >> from LatLonCalc.LatLon import LatLon, Latitude, Longitude
+   >> from latloncalc.LatLon import LatLon, Latitude, Longitude
 
 Create a *LatLon* object from coordinates::
 
