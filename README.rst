@@ -41,7 +41,7 @@ Notes
 ------------
 Installation
 ------------
-*LatLonCalc* has only been tested in Python 3.9
+*LatLonCalc* has been tested in Python 3.6, 3.7, 3.8, 3.9, and 3.10
 
 Installation through pip::
 
