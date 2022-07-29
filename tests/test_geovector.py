@@ -11,7 +11,7 @@ update to Python 3.9: E. van Vliet (July, 2022)
 
 import math
 
-from LatLonCalc.LatLon import GeoVector
+from latloncalc.latlon import GeoVector
 
 
 def test_constructor():

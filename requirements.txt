@@ -1,0 +1,4 @@
+pyproj~=3.3.0
+sphinx~=5.0.2
+numpy~=1.22.3
+setuptools~=62.3.2

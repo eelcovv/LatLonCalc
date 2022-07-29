@@ -13,7 +13,7 @@ import pyproj
 from numpy import (exp, angle, deg2rad, rad2deg)
 from numpy.testing import (assert_almost_equal, assert_equal)
 
-from LatLonCalc.LatLon import (LatLon, string2latlon, Latitude, Longitude)
+from latloncalc.latlon import (LatLon, string2latlon, Latitude, Longitude)
 
 
 def test_latlon_tostring():
