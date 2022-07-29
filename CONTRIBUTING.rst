@@ -62,12 +62,12 @@ The documentation was setup using  reStructuredText_ files
 When working on documentation changes in your local machine, you can
 compile them using |tox|_::
 
-tox -e docs
+    tox -e docs
 
 and use Python's built-in web server for a preview in your web browser
 (``http://localhost:8000``)::
 
-python3 -m http.server --directory 'docs/_build/html'
+    python3 -m http.server --directory 'docs/_build/html'
 
 
 Code Contributions
@@ -95,8 +95,8 @@ Before you start coding, we recommend creating an isolated `virtual
 environment`_ to avoid any problems with your installed Python packages.
 This can easily be done via either |virtualenv|_::
 
-virtualenv <PATH TO VENV>
-source <PATH TO VENV>/bin/activate
+    virtualenv <PATH TO VENV>
+    source <PATH TO VENV>/bin/activate
 
 or Miniconda_::
 
@@ -121,8 +121,8 @@ Clone the repository
 page. This creates a copy of the code under your account on |the repository service|.
 #. Clone this copy to your local disk::
 
-git clone git@github.com:YourLogin/LatLonCalc.git
-cd LatLonCalc
+    git clone git@github.com:YourLogin/LatLonCalc.git
+    cd LatLonCalc
 
 #. You should run::
 
@@ -138,7 +138,7 @@ Implement your changes
 
 #. Create a branch to hold your changes::
 
-git checkout -b my-feature
+    git checkout -b my-feature
 
 and start making changes. Never work on the main branch!
 
@@ -149,7 +149,7 @@ functions, modules and classes, especially if they are part of public APIs.
 
 #. When you’re done editing, do::
 
-git add <MODIFIED FILES>
+    git add <MODIFIED FILES>
     git commit
 
    to record your changes in git_.
