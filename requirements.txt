@@ -12,3 +12,4 @@ numpy
 pyproj
 setuptools
 Sphinx
+sphinx_rtd_theme
