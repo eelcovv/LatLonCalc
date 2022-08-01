@@ -1,0 +1,12 @@
+name: latloncalc
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.6
+  - pip
+  - tox
+  - pytest
+  - pyproj
+  - numpy
+  - pip:
+      - .  # install git checkout of demo-dsproject in editable mode
