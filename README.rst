@@ -41,7 +41,7 @@ Notes
 ------------
 Installation
 ------------
-*latloncalc* has been tested in Python 3.6, 3.7, 3.8, 3.9, and 3.10
+*latloncalc* has been tested in Python 3.6, 3.7, 3.8, 3.9, 3.10, and 3.11
 
 Installation through pip::
 

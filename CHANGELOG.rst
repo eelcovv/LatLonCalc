@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.5.4 (SEP/11/2023)
+===================
+* rebuild of doc to fix deprecated build.image config key on .readthedocs.yaml
+
 1.5.3 (AUG/1/2022)
 ===================
 * dropped Python 2 support, upgraded to Python 3.9
