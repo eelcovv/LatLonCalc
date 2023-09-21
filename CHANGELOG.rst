@@ -2,7 +2,7 @@
 Changelog
 =========
 
-1.5.5 (SEP/11/2023)
+1.5.6 (SEP/11/2023)
 ===================
 * rebuild of doc to fix deprecated build.image config key on .readthedocs.yaml
 
